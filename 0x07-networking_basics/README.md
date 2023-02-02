@@ -25,7 +25,7 @@ What is the most important position in a software company?
 | 3 |
 | sylvain@ubuntu$ |
 
-
+| -------- | ------- |
 | January | $250 |
 | February | $80 |
 | March | $420 |

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# testing/pinging an ip/host in a network five times
+
+if [ "$1" ]; then
+   ping "$1" -c 5
+else
+    echo "Usage: 5-is_the_host_on_the_network $1"
+fi

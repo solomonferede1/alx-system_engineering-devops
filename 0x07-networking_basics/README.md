@@ -1,5 +1,5 @@
 # 0x07. Networking basics #0
-``Deops``` ```Network```
+```DevOps``` ```Network```
 ## Requirements
 ### General
 - Allowed editors: vi, vim, emacs
@@ -20,6 +20,7 @@ What is the most important position in a software company?
 1. Project manager
 2. Backend developer
 3. System administrator
+
 ```sylvain@ubuntu$ cat foo_answer_file
 3
 sylvain@ubuntu$```

@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
-# Installs nginx web server
-
-apt-get update
-apt-get update
-apt-get install -y nginx
-echo "Hello World!" > /var/www/html/index.nginx-debian.html
+# permanent 302 redirection https://github.com/solomon1227;
 echo "server {
     listen 80;
     listen [::]:80 default_server;
@@ -13,5 +8,5 @@ echo "server {
     location /redirect_me {
         return 301 https://github.com/solomon1227;
     }
-}" > /etc/nginx/sites-available/default
+}" >> /etc/nginx/sites-available/default
 service nginx restart

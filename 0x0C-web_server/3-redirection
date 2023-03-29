@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Install aand configure nginx web server
+# Install and configure nginx web server
 
 apt-get update
 apt-get update
@@ -12,6 +12,5 @@ echo "server {
     index  index.html index index.html index.htm index.nginx-debian.html;
     location /redirect_me {
         return 301 https://github.com/solomon1227;
-    }
 }" > /etc/nginx/sites-available/default
 service nginx restart

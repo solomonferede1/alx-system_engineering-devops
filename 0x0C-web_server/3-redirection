@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
-# permanent 302 redirection https://github.com/solomon1227;
+# Install aand configure nginx web server
+
+apt-get update
+apt-get update
+apt-get install -y nginx
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
 echo "server {
     listen 80;
     listen [::]:80 default_server;

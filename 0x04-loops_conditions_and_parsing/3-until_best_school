@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# util loop to print 'Best school' ten times
+i=0
+until [ "$i" -eq 10 ]
+do
+    echo 'Best School'
+    ((i++))
+done

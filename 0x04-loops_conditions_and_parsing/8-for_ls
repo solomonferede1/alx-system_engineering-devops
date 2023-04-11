@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 # list current directory
-IFS='-'
-ls > list
-for i in $(cat list);
+for i in *
 do
-    read -r new_list <<< "$i"
-    echo "${new_list}"
+    echo "$i" | cut -d "-" -f2
 done

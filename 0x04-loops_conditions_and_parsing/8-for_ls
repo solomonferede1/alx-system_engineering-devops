@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# list current directory
+IFS='-'
+ls > list
+for i in $(cat list);
+do
+    read -r new_list <<< "$i"
+    echo "$new_list"
+done

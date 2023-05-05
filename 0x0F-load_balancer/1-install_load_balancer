@@ -4,10 +4,9 @@ apt-get update
 apt-get install -y --no-install-recommends software-properties-common
 add-apt-repository ppa:vbernat/haproxy-2.7
 apt-get install -y haproxy=2.7.\*
-echo "frontend http
+echo "
+frontend http
   bind *:80
-  mode http
-
   default_backend web-back
 
 backend web_back

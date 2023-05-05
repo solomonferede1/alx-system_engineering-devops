@@ -12,6 +12,6 @@ echo "server {
     index  index.html index index.html index.htm index.nginx-debian.html;
     location /redirect_me {
         return 301 https://github.com/solomon1227;
-}
-}ss" > /etc/nginx/sites-available/default
+        }
+}" > /etc/nginx/sites-available/default
 service nginx restart

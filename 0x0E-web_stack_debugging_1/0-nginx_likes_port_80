@@ -2,7 +2,7 @@
 # try to correct nginx not listnen to port 80
 sudo apt-get install nginx
 ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
-if [ "$(lsof -i :80 | grep LISTEN)" ]; then
+if lsof -i :80 | grep -q LISTEN; then
     sudo fuser -k 80/tcp
 fi
 service nginx start

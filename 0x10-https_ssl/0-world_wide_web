@@ -22,10 +22,7 @@ function audit_domain() {
   
   # Display information for the specified subdomain
   else
-    #record_type=$(dig +short -t CNAME $sub_domain.$domain > /dev/null && echo "CNAME" || echo "A")
-    record_type="A"
-    destination=$(dig +short $sub_domain.$domain)
-    print_info "$sub_domain" "$record_type" "$destination"
+    print_info "$sub_domain" "A" "$(dig +short $sub_domain.$domain)"
   fi
 }
 

@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
-#run docker container
+# try to correct nginx not listnen to port 80
+sudo apt-get install nginx
 ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
-service nginx restart
+if [ "$(lsof -i :80 | grep LISTEN)" ]; then
+    sudo fuser -k 80/tcp
+fi
+service nginx start

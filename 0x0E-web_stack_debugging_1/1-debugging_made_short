@@ -2,4 +2,4 @@
 # try to correct nginx not listnen to port 80
 ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 service nginx restart
-pkill -f "nginx"
+kill "$(pgrep 'nginx' | head -1)"

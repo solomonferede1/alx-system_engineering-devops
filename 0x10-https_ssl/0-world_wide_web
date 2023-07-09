@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# Configure your domain zone so that the subdomain www points
+# to your load-balancer IP (lb-01). 
+
+function print_info() {
+  sub_domain=$1
+  record_type=$2
+  destination=$3
+  echo "The subdomain $sub_domain is a $record_type record and points to $destination"
+}
+
+function audit_domain() {
+  domain=$1
+  sub_domain=$2
+  
+  # Display information for default subdomains www, lb-01, web-01, and web-02
+  if [[ -z $sub_domain ]]; then
+    print_info "www" "A" "$(dig +short www.$domain)"
+    print_info "lb-01" "A" "$(dig +short lb-01.$domain)"
+    print_info "web-01" "A" "$(dig +short web-01.$domain)"
+    print_info "web-02" "A" "$(dig +short web-02.$domain)"
+  
+  # Display information for the specified subdomain
+  else
+    #record_type=$(dig +short -t CNAME $sub_domain.$domain > /dev/null && echo "CNAME" || echo "A")
+    record_type="A"
+    destination=$(dig +short $sub_domain.$domain)
+    print_info "$sub_domain" "$record_type" "$destination"
+  fi
+}
+
+# Accept command-line arguments
+len=$#
+if [[ $len -eq 1 ]]; then
+   audit_domain $1
+elif [[ $len -eq 2 ]]; then
+  audit_domain $1 $2
+fi

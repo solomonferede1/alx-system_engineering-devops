@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# Installing and configuring haproxy load balancer
 # Update the system
 sudo apt update
 sudo apt upgrade -y

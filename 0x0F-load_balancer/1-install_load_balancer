@@ -21,6 +21,5 @@ backend web_backend
     balance roundrobin
     server web-01 54.237.25.186:80 check
     server web-02 100.25.21.22:80 check" >> /etc/haproxy/haproxy.cfg
-EOF
 # Start HAProxy service
 sudo service haproxy restart

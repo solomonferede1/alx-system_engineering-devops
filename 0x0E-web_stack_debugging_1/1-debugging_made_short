@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # try to correct nginx not listnen to port 80
-sudo apt-get install nginx
-if lsof -i :80 | grep -q LISTEN; then sudo fuser -k 80/tcp fi
+if lsof -i :80 | grep -q LISTEN; then sudo fuser -k 80/tcp
+fi
 sudo service nginx restart

@@ -9,7 +9,7 @@ sudo apt install -y haproxy
 
 # Configure HAProxy
 sudo mv /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.backup
-sudo chown  $USER:$USER /etc/haproxy/haproxy.cfg
+sudo chown  "$USER":"$USER" /etc/haproxy/haproxy.cfg
 echo "
 frontend web_frontend
     bind *:80

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Run software as another user
+USER=$1
+runuser -l "$USER" -c "whoami"

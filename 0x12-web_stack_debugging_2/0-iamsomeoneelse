@@ -1,5 +1,3 @@
 #!/usr/bin/env bash
 # Run software as another user
-USER=$1
-sudo -u "$USER"whoami
-
+sudo -u "$1" whoami

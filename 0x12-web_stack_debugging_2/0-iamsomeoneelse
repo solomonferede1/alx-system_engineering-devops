@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # Run software as another user
-USER=$1
-runuser -u "$USER" -c "whoami"
+USER="$1"
+runuser -u "$USER" -c whoami
 

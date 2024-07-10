@@ -1,25 +1,40 @@
 #!/usr/bin/env bash
-# Install and configure nginx web server
-
+# Update package lists and install Nginx
 apt-get update
-apt-get install -y nginx
-echo "Hello World!" > /var/www/html/index.nginx-debian.html
-echo "Ceci n'est pas une page" > /var/www/html/404.html
+apt-get install nginx -y
+
+echo "Hello World!" > /var/www/html/index.html
+
+# Create a custom 404 error page
+sudo mkdir -p /var/www/html/errors
+echo "<!DOCTYPE html>
+<html>
+<head>
+    <title>404 Not Found</title>
+</head>
+<body>
+    <p>Ceci n'est pas une page</p>
+</body>
+</html>" | tee /var/www/html/errors/404.html
+
+# Configure Nginx to use the custom 404 page
+
 echo "server {
     listen 80;
     listen [::]:80 default_server;
     root   /var/www/html;
-    index  index.html index index.html index.htm index.nginx-debian.html;
+    index  index.html index index.nginx-debian.html;
     
     add_header X-Served-By \$hostname;
-
+    
     location /redirect_me {
         return 301 https://github.com/solomonferede1;
-    }
-    error_page 404 /404.html;
-    location = /404.html{
-        root /var/www/html;
+        }
+
+    error_page 404 /errors/404.html;
+    location  /errors/404.html {
         internal;
-    }
+        }
 }" > /etc/nginx/sites-available/default
+# Test and reload Nginx
 service nginx restart

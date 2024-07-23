@@ -17,5 +17,5 @@ A project done at ALX software engineering school on mysql database
 - The second line of all your Bash scripts should be a comment explaining what is the script doing
 
 # Author
-**Solomon Ferede - <ezezsolomonferede@gmail.com>**
+**Solomon Ferede - <solomonf1227@gmail.com>**
 

@@ -31,5 +31,6 @@ def todo_list_completed(employee_id):
 
 
 if __name__ == '__main__':
+    '''Call if main'''
     employee_id = int(sys.argv[1])
     todo_list_completed(employee_id)

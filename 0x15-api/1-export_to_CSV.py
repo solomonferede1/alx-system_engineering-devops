@@ -20,11 +20,13 @@ def todo_list_completed(employee_id):
     parms = {'userId': employee_id}
     response = requests.get(url_todo, params=parms).json()
 
+    lines = []
     file_name = f'{employee_id}.csv'
     for todos in response:
-        line = f'"{employee_id}", "{USERNAME}",\
-            "{todos["completed"]}", "{todos["title"]}"\n'
-        with open(file_name, 'a') as file:
+        lines.append(f'"{employee_id}", "{USERNAME}", \
+"{todos["completed"]}", "{todos["title"]}"\n')
+    with open(file_name, 'w') as file:
+        for line in lines:
             file.write(line)
 
 

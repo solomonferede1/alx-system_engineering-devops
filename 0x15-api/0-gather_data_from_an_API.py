@@ -26,10 +26,10 @@ def todo_list_completed(employee_id):
             completed.append(todos['title'])
 
     NUMBER_OF_DONE_TASKS = len(completed)
-    NUMBER_OF_DONE_TASKS = len(response)
+    TOTAL_NUMBER_OF_TASKS = len(response)
 
     print(f"Employee {EMPLOYEE_NAME} is done with tasks(\
-{NUMBER_OF_DONE_TASKS}/{NUMBER_OF_DONE_TASKS}): ")
+{NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}): ")
     for task in completed:
         print(f"\t {task}")
 

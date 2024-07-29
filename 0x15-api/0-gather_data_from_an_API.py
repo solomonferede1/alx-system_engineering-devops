@@ -23,11 +23,12 @@ def todo_list_completed(employee_id):
     NUMBER_OF_DONE_TASKS = len(completed)
     NUMBER_OF_DONE_TASKS = len(todos)
 
-    print(f"Employee {EMPLOYEE_NAME} is done with tasks({NUMBER_OF_DONE_TASKS}/{NUMBER_OF_DONE_TASKS}):")
+    print(f"Employee {EMPLOYEE_NAME} is done with tasks(
+                        {NUMBER_OF_DONE_TASKS}/{NUMBER_OF_DONE_TASKS}): ")
     for task in completed:
         print(f"\t {task['title']}")
+
 
 if __name__ == '__main__':
     employee_id = int(sys.argv[1])
     todo_list_completed(employee_id)
-

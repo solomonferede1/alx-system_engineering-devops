@@ -7,6 +7,7 @@ import requests
 
 
 def todo_list_completed(employee_id):
+    '''List completed tasks'''
     url_user = "https://jsonplaceholder.typicode.com/users/"
     url_todo = "https://jsonplaceholder.typicode.com/todos/"
 

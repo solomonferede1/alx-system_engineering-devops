@@ -1,23 +1,38 @@
 #!/usr/bin/python3
 
-"""
-Simple script that exports all trades from cointracking and write them into a json file.
+""" Python script to export data in the JSON format."""
 
-Note that the exported json is NOT compatible with the json export from the cointracking site.
-"""
-import json
+import requests
 import sys
 
-from api import get_trades
+
+def todo_to_json(employee_id):
+    '''List completed tasks'''
+    url_user = "https://jsonplaceholder.typicode.com/users/"
+    url_todo = "https://jsonplaceholder.typicode.com/todos/"
+
+    parms = {'id': employee_id}
+    response = requests.get(url_user, params=parms).json()
+    for i in response:
+        if i['id'] == employee_id:
+            EMPLOYEE_NAME = i['name']
+            USERNAME = i['username']
+
+    parms = {'userId': employee_id}
+    response = requests.get(url_todo, params=parms).json()
+
+    line = []
+    for todos in response:
+        line.append(f'{{"task": "{todos["title"]}", "completed": {todos["completed"]}, "username": "{USERNAME}"}}')
+    
+    lines = f'{{"{employee_id}": {line}}}'
+
+    file_name = f'{employee_id}.json'
+    with open(file_name, 'w') as file:
+        file.write(lines)
 
 
-if len(sys.argv) != 2:
-    print("Usage: {} <json_file>".format(sys.argv[0]))
-    exit(1)
-
-all_trades = get_trades()
-
-with open(sys.argv[1], 'w') as output_file:
-    json.dump(all_trades, output_file, indent=4)
-
-print("Success. Exported {} items.".format(len(all_trades)))
+if __name__ == '__main__':
+    '''Call if main'''
+    employee_id = int(sys.argv[1])
+    todo_to_json(employee_id)

@@ -1,5 +1,5 @@
-
-dule for storing the count_words function. """
+#!/usr/bin/python3
+"""dule for storing the count_words function. """
 from requests import get
 
 

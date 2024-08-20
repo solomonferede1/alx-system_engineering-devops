@@ -13,7 +13,7 @@ def number_of_subscribers(subreddit):
     - If not a valid subreddit, return 0.
     """
     url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
-    headers = {'User-Agent': 'custom'}
+    headers = {'User-Agent': 'MyRedditScript/0.1 (contact: ezezsolomonferede@gmail.com)'}
 
     # Make the GET request to the Reddit API
     req = requests.get(url, headers=headers, allow_redirects=False)

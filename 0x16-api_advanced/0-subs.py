@@ -12,7 +12,7 @@ def number_of_subscribers(subreddit):
     - If not a valid subreddit, return 0.
     """
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
-    headers = {"User-Agent": "Custom"}
+    headers = {'User-Agent': 'custom-script/0.1'}
     try:
         req = requests.get(url, headers=headers, allow_redirects=False)
         if req.status_code == 200:

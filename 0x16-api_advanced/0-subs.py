@@ -12,7 +12,8 @@ def number_of_subscribers(subreddit):
     - If not a valid subreddit, return 0.
     """
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
-    headers = {'User-Agent': 'custom'}
+    user_agent = "0-subs (Python; Ubuntu 20.04; Contact: ezezsolomonferede@gmail.com)"
+    headers = {'User-Agent': user_agent}
     try:
         req = requests.get(url, headers=headers, allow_redirects=False)
         if req.status_code == 200:

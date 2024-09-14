@@ -1,0 +1,16 @@
+server {
+    listen 80;
+    server_name 100.26.236.93;
+
+    # Location block for /airbnb-onepage/
+    location /airbnb-onepage/ {
+        include proxy_params;
+        proxy_pass http://0.0.0.0:5000;
+    }
+
+    # Location block for /airbnb-dynamic/number_odd_or_even/
+    location ~ ^/airbnb-dynamic/number_odd_or_even/([0-9]+) {
+        include proxy_params;
+        proxy_pass http://0.0.0.0:5001;
+    }
+}

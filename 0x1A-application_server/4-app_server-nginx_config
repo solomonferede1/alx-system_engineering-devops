@@ -14,4 +14,10 @@ server {
         include proxy_params;
         proxy_pass http://0.0.0.0:5001;
     }
+
+    location /api/ {
+        /airbnb-dynamic/(.*) $1;
+        include proxy_params;
+        proxy_pass http://0.0.0.0:5002;
+    }
 }

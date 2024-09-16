@@ -19,4 +19,9 @@ server {
         include proxy_params;
         proxy_pass http://0.0.0.0:5002/api/;
     }
+
+    # Serve static assets
+    location /static/ {
+        alias /home/ubuntu/AirBnB_clone_v4/web_dynamic/static;
+    }
 }

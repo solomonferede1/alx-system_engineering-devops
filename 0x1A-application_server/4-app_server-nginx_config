@@ -10,7 +10,7 @@ server {
 
     # Location block for /airbnb-dynamic/number_odd_or_even/
     location ~ ^/airbnb-dynamic/number_odd_or_even/([0-9]+) {
-        rewrite /airbnb-dynamic/(.*) $1;
+        rewrite /airbnb-dynamic/(.*) $1 break;
         include proxy_params;
         proxy_pass http://0.0.0.0:5001;
     }
@@ -18,10 +18,5 @@ server {
     location /api/ {
         include proxy_params;
         proxy_pass http://0.0.0.0:5002/api/;
-    }
-
-    # Serve static assets
-    location /static/ {
-        alias /home/ubuntu/AirBnB_clone_v4/web_dynamic/static;
     }
 }
